@@ -1,0 +1,1078 @@
+/* =========================================================
+   ADITI'S DREAM VACATION — AN UNFINISHED STORY
+   Pure HTML & CSS Only. No JavaScript.
+   Beginner-friendly structure with clear, semantic rules.
+   ========================================================= */
+
+/* -------------------- COLOR PALETTE -------------------- */
+:root {
+  --navy: #10142e;             /* deep night sky */
+  --burgundy: #4a1526;         /* rich wine red for Chapter 1, 3, 5 */
+  --burgundy-deep: #320d19;    /* deepest wine tone */
+  --fuschia: #d1447a;          /* vibrant rose accent */
+  --soft-pink: #f7d6e0;        /* dreamy soft pink for Chapter 2, 4 */
+  --soft-pink-light: #fff2f6;  /* ultra-soft blush card highlight */
+  --soft-pink-dark: #e8aabf;   /* soft pink border & accent tone */
+  --off-white: #fdfaf7;        /* text color on dark backgrounds */
+  --gold: #f4c95d;             /* warm starlight & lantern gold */
+  --orange: #e07a45;           /* dawn & sunrise warmth */
+  --soft-blue: #7ca5dc;        /* moonlight & water accent */
+  --black: #060810;            /* deep cosmic black */
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Karla', 'Segoe UI', sans-serif;
+}
+
+/* -------------------- BASE STYLES -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--off-white);
+  font-family: var(--sans);
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+}
+
+/* -------------------- NAVIGATION -------------------- */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  background-color: rgba(6, 8, 16, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(247, 214, 224, 0.15);
+}
+
+.site-nav .logo {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-nav .logo:hover {
+  color: var(--soft-pink);
+}
+
+.site-nav nav a {
+  color: var(--off-white);
+  text-decoration: none;
+  margin-left: 1.8rem;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.site-nav nav a:hover {
+  opacity: 1;
+  color: var(--soft-pink);
+}
+
+/* -------------------- HERO SECTION -------------------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: var(--navy);
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: var(--off-white);
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.2; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1.3); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6.5vw, 4.4rem);
+  letter-spacing: 5px;
+  color: var(--off-white);
+}
+
+.hero-line {
+  margin-top: 1.4rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--gold);
+}
+
+.hero-line--soft {
+  color: var(--soft-pink);
+  font-size: 1.1rem;
+  margin-top: 0.4rem;
+}
+
+.begin-btn {
+  display: inline-block;
+  margin-top: 2.4rem;
+  padding: 0.85rem 2rem;
+  border: 1.5px solid var(--gold);
+  border-radius: 999px;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.begin-btn:hover {
+  background-color: var(--gold);
+  color: var(--black);
+  box-shadow: 0 0 20px rgba(244, 201, 93, 0.4);
+}
+
+.arrow {
+  display: inline-block;
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+.signature {
+  margin-top: 1.5rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: rgba(247, 214, 224, 0.7);
+}
+
+.hero-footnote {
+  position: absolute;
+  bottom: 1.6rem;
+  font-size: 0.8rem;
+  color: rgba(253, 250, 247, 0.55);
+}
+
+/* -------------------- FLOATING FIREFLY & BUTTERFLY -------------------- */
+.firefly-link, .butterfly-link {
+  position: absolute;
+  bottom: 5rem;
+  right: 3rem;
+  text-decoration: none;
+  z-index: 5;
+}
+
+.firefly {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--gold);
+  box-shadow: 0 0 10px 4px rgba(244, 201, 93, 0.85);
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.butterfly {
+  display: inline-block;
+  font-size: 1.6rem;
+  animation: flutter 3s ease-in-out infinite;
+}
+
+@keyframes flutter {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(4deg); }
+}
+
+/* -------------------- INTRODUCTION -------------------- */
+.intro {
+  position: relative;
+  padding: 6.5rem 2rem;
+  text-align: center;
+  background-color: var(--burgundy);
+  border-top: 1px solid rgba(247, 214, 224, 0.15);
+}
+
+.intro-inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.intro h2 {
+  font-size: 1.55rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 1.8rem;
+}
+
+.intro p {
+  font-size: 1.15rem;
+  color: rgba(253, 250, 247, 0.88);
+  margin-bottom: 0.6rem;
+}
+
+.intro-final {
+  margin-top: 1.4rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--soft-pink);
+}
+
+.intro .butterfly-link {
+  bottom: 1.5rem;
+  right: 2.5rem;
+  position: absolute;
+}
+
+/* -------------------- CHAPTER LAYOUT & ALTERNATING COLORS -------------------- */
+/* Riddles alternate: Burgundy -> Soft Pink -> Burgundy -> Soft Pink -> Burgundy */
+.chapter {
+  padding: 6rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(247, 214, 224, 0.15);
+}
+
+.chapter > * {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Burgundy Chapter Styling (Chapters 01, 03, 05) */
+.chapter--burgundy {
+  background-color: var(--burgundy);
+  color: var(--off-white);
+}
+
+.chapter--burgundy .chapter-num {
+  font-size: 0.85rem;
+  letter-spacing: 2.5px;
+  color: var(--soft-pink);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.chapter--burgundy .poem-line {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.22rem;
+  color: var(--off-white);
+  margin-bottom: 0.35rem;
+}
+
+.chapter--burgundy .quiz-prompt {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+}
+
+/* Soft Pink Chapter Styling (Chapters 02, 04) */
+.chapter--soft-pink {
+  background-color: var(--soft-pink);
+  color: var(--burgundy);
+}
+
+.chapter--soft-pink .chapter-num {
+  font-size: 0.85rem;
+  letter-spacing: 2.5px;
+  color: var(--fuschia);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.chapter--soft-pink .poem-line {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.22rem;
+  color: var(--burgundy);
+  margin-bottom: 0.35rem;
+}
+
+.chapter--soft-pink .quiz-prompt {
+  color: var(--burgundy);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* -------------------- INTERACTIVE RIDDLE BOX (PURE HTML + CSS) -------------------- */
+.riddle-box {
+  margin-top: 2.5rem;
+  max-width: 620px;
+}
+
+/* Pure CSS: Radio buttons are kept accessible yet hidden */
+.quiz-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.quiz-prompt {
+  margin-bottom: 1.2rem;
+}
+
+/* Options Container */
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Option Buttons (styled labels) */
+.option-label {
+  display: flex;
+  align-items: center;
+  padding: 0.95rem 1.35rem;
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.option-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.option-title {
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+/* Burgundy Chapter Option Buttons */
+.chapter--burgundy .option-label {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(247, 214, 224, 0.3);
+  color: var(--off-white);
+}
+
+.chapter--burgundy .option-letter {
+  background-color: var(--soft-pink);
+  color: var(--burgundy);
+}
+
+.chapter--burgundy .option-label:hover {
+  background-color: rgba(247, 214, 224, 0.16);
+  border-color: var(--soft-pink);
+  transform: translateY(-2px);
+}
+
+/* Soft Pink Chapter Option Buttons */
+.chapter--soft-pink .option-label {
+  background-color: rgba(255, 255, 255, 0.78);
+  border: 1.5px solid var(--soft-pink-dark);
+  color: var(--burgundy);
+  box-shadow: 0 4px 14px rgba(74, 21, 38, 0.05);
+}
+
+.chapter--soft-pink .option-letter {
+  background-color: var(--burgundy);
+  color: var(--soft-pink);
+}
+
+.chapter--soft-pink .option-label:hover {
+  background-color: #ffffff;
+  border-color: var(--burgundy);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(74, 21, 38, 0.12);
+}
+
+/* -------------------- OPTION SELECTION FEEDBACK -------------------- */
+/* Correct Option Selected (Glowing Green) */
+#r1-opt2:checked ~ .options-group .opt-2,
+#r2-opt1:checked ~ .options-group .opt-1,
+#r3-opt3:checked ~ .options-group .opt-3,
+#r4-opt1:checked ~ .options-group .opt-1,
+#r5-opt3:checked ~ .options-group .opt-3 {
+  border-color: #22c55e !important;
+  background-color: rgba(34, 197, 94, 0.18) !important;
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.35);
+  transform: translateY(-2px);
+}
+
+#r1-opt2:checked ~ .options-group .opt-2 .option-letter,
+#r2-opt1:checked ~ .options-group .opt-1 .option-letter,
+#r3-opt3:checked ~ .options-group .opt-3 .option-letter,
+#r4-opt1:checked ~ .options-group .opt-1 .option-letter,
+#r5-opt3:checked ~ .options-group .opt-3 .option-letter {
+  background-color: #22c55e !important;
+  color: #ffffff !important;
+}
+
+/* Wrong Option Selected (Warm Rose Alert) */
+#r1-opt1:checked ~ .options-group .opt-1,
+#r1-opt3:checked ~ .options-group .opt-3,
+#r2-opt2:checked ~ .options-group .opt-2,
+#r2-opt3:checked ~ .options-group .opt-3,
+#r3-opt1:checked ~ .options-group .opt-1,
+#r3-opt2:checked ~ .options-group .opt-2,
+#r4-opt2:checked ~ .options-group .opt-2,
+#r4-opt3:checked ~ .options-group .opt-3,
+#r5-opt1:checked ~ .options-group .opt-1,
+#r5-opt2:checked ~ .options-group .opt-2 {
+  border-color: #f43f5e !important;
+  background-color: rgba(244, 63, 94, 0.16) !important;
+  transform: translateY(-1px);
+}
+
+#r1-opt1:checked ~ .options-group .opt-1 .option-letter,
+#r1-opt3:checked ~ .options-group .opt-3 .option-letter,
+#r2-opt2:checked ~ .options-group .opt-2 .option-letter,
+#r2-opt3:checked ~ .options-group .opt-3 .option-letter,
+#r3-opt1:checked ~ .options-group .opt-1 .option-letter,
+#r3-opt2:checked ~ .options-group .opt-2 .option-letter,
+#r4-opt2:checked ~ .options-group .opt-2 .option-letter,
+#r4-opt3:checked ~ .options-group .opt-3 .option-letter,
+#r5-opt1:checked ~ .options-group .opt-1 .option-letter,
+#r5-opt2:checked ~ .options-group .opt-2 .option-letter {
+  background-color: #f43f5e !important;
+  color: #ffffff !important;
+}
+
+/* -------------------- REACTION CARDS -------------------- */
+.reaction-card {
+  display: none;
+  max-width: 580px;
+  margin: 1.2rem auto;
+  padding: 1.3rem 1.6rem;
+  border-radius: 14px;
+  text-align: left;
+}
+
+@keyframes reactionPop {
+  0% { opacity: 0; transform: translateY(10px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.reaction-badge {
+  display: inline-block;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.7rem;
+}
+
+.correct-badge {
+  background-color: #22c55e;
+  color: #ffffff;
+}
+
+.wrong-badge {
+  background-color: var(--fuschia);
+  color: #ffffff;
+}
+
+.reaction-text {
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+/* Reactions in Burgundy Chapters */
+.chapter--burgundy .reaction-card {
+  background-color: rgba(30, 8, 16, 0.88);
+  border: 1px solid rgba(247, 214, 224, 0.3);
+  color: var(--off-white);
+}
+
+/* Reactions in Soft Pink Chapters */
+.chapter--soft-pink .reaction-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid var(--soft-pink-dark);
+  color: var(--burgundy);
+  box-shadow: 0 8px 24px rgba(74, 21, 38, 0.08);
+}
+
+/* Display corresponding reaction when radio is checked */
+#r1-opt1:checked ~ .reaction-1,
+#r1-opt2:checked ~ .reaction-2,
+#r1-opt3:checked ~ .reaction-3,
+#r2-opt1:checked ~ .reaction-1,
+#r2-opt2:checked ~ .reaction-2,
+#r2-opt3:checked ~ .reaction-3,
+#r3-opt1:checked ~ .reaction-1,
+#r3-opt2:checked ~ .reaction-2,
+#r3-opt3:checked ~ .reaction-3,
+#r4-opt1:checked ~ .reaction-1,
+#r4-opt2:checked ~ .reaction-2,
+#r4-opt3:checked ~ .reaction-3,
+#r5-opt1:checked ~ .reaction-1,
+#r5-opt2:checked ~ .reaction-2,
+#r5-opt3:checked ~ .reaction-3 {
+  display: block;
+  animation: reactionPop 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* -------------------- PEEK / SKIP LINK -------------------- */
+.peek-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.86rem;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: opacity 0.25s ease;
+}
+
+.chapter--burgundy .peek-link {
+  color: var(--soft-pink);
+  border-bottom: 1px dashed var(--soft-pink);
+}
+
+.chapter--soft-pink .peek-link {
+  color: var(--burgundy);
+  border-bottom: 1px dashed var(--burgundy);
+}
+
+.peek-link:hover {
+  opacity: 0.75;
+}
+
+/* Hide peek link once revealed */
+#r1-opt2:checked ~ .peek-link,
+#r1-reveal:checked ~ .peek-link,
+#r2-opt1:checked ~ .peek-link,
+#r2-reveal:checked ~ .peek-link,
+#r3-opt3:checked ~ .peek-link,
+#r3-reveal:checked ~ .peek-link,
+#r4-opt1:checked ~ .peek-link,
+#r4-reveal:checked ~ .peek-link,
+#r5-opt3:checked ~ .peek-link,
+#r5-reveal:checked ~ .peek-link {
+  display: none;
+}
+
+/* -------------------- DESTINATION REVEAL (IMAGE & STORY) -------------------- */
+.reveal {
+  display: none;
+  margin-top: 2rem;
+  padding: 2.2rem 1.8rem;
+  border-radius: 18px;
+  text-align: center;
+}
+
+@keyframes revealFadeIn {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Unlocks when Correct Guess OR Peek is checked */
+#r1-opt2:checked ~ .reveal,
+#r1-reveal:checked ~ .reveal,
+#r2-opt1:checked ~ .reveal,
+#r2-reveal:checked ~ .reveal,
+#r3-opt3:checked ~ .reveal,
+#r3-reveal:checked ~ .reveal,
+#r4-opt1:checked ~ .reveal,
+#r4-reveal:checked ~ .reveal,
+#r5-opt3:checked ~ .reveal,
+#r5-reveal:checked ~ .reveal {
+  display: block;
+  animation: revealFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Crystal-Clear Image Display */
+.chapter-photo {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+  margin: 0 auto 1.6rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.chapter-photo:hover {
+  transform: scale(1.015);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.chapter--soft-pink .chapter-photo {
+  border: 1px solid rgba(74, 21, 38, 0.15);
+  box-shadow: 0 12px 28px rgba(74, 21, 38, 0.15);
+}
+
+/* Reveal Typography & Badges in Burgundy Chapters */
+.chapter--burgundy .reveal {
+  background-color: rgba(30, 8, 16, 0.65);
+  border: 1px solid rgba(247, 214, 224, 0.25);
+}
+
+.chapter--burgundy .reveal h3 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--off-white);
+  margin-bottom: 0.2rem;
+}
+
+.chapter--burgundy .location {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--soft-pink);
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.chapter--burgundy .tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.chapter--burgundy .reveal p {
+  color: rgba(253, 250, 247, 0.9);
+  margin-bottom: 0.9rem;
+}
+
+.chapter--burgundy .with {
+  color: var(--soft-pink);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.chapter--burgundy .status {
+  display: inline-block;
+  border: 1.5px solid var(--gold);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: var(--gold);
+}
+
+.chapter--burgundy .closing {
+  font-family: var(--serif);
+  font-style: italic;
+  color: rgba(253, 250, 247, 0.7);
+}
+
+.chapter--burgundy .next-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--soft-pink);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--soft-pink);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.chapter--burgundy .next-link:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* Reveal Typography & Badges in Soft Pink Chapters */
+.chapter--soft-pink .reveal {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid var(--soft-pink-dark);
+  box-shadow: 0 12px 30px rgba(74, 21, 38, 0.08);
+}
+
+.chapter--soft-pink .reveal h3 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--burgundy);
+  margin-bottom: 0.2rem;
+}
+
+.chapter--soft-pink .location {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--fuschia);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.chapter--soft-pink .tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--burgundy);
+  margin-bottom: 1rem;
+}
+
+.chapter--soft-pink .reveal p {
+  color: rgba(74, 21, 38, 0.88);
+  margin-bottom: 0.9rem;
+}
+
+.chapter--soft-pink .with {
+  color: var(--fuschia);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.chapter--soft-pink .status {
+  display: inline-block;
+  border: 1.5px solid var(--burgundy);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: var(--burgundy);
+  font-weight: 600;
+}
+
+.chapter--soft-pink .closing {
+  font-family: var(--serif);
+  font-style: italic;
+  color: rgba(74, 21, 38, 0.72);
+}
+
+.chapter--soft-pink .next-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--burgundy);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--burgundy);
+  transition: color 0.3s ease;
+}
+
+.chapter--soft-pink .next-link:hover {
+  color: var(--fuschia);
+  border-color: var(--fuschia);
+}
+
+/* -------------------- PEOPLE -------------------- */
+.people {
+  position: relative;
+  padding: 6.5rem 2rem;
+  text-align: center;
+  background-color: var(--black);
+  border-top: 1px solid rgba(247, 214, 224, 0.15);
+}
+
+.people h2 {
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 2.8rem;
+}
+
+.people-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.8rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.people-card {
+  background-color: var(--navy);
+  border: 1px solid rgba(247, 214, 224, 0.2);
+  border-radius: 16px;
+  padding: 2.2rem 1.6rem;
+  width: 270px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.people-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--soft-pink);
+  box-shadow: 0 10px 25px rgba(247, 214, 224, 0.15);
+}
+
+.people-card h3 {
+  color: var(--soft-pink);
+  font-size: 1.25rem;
+  margin-bottom: 0.9rem;
+}
+
+.people-lines {
+  font-family: var(--serif);
+  font-style: italic;
+  color: rgba(253, 250, 247, 0.88);
+  margin-bottom: 1.2rem;
+  font-size: 1.02rem;
+}
+
+.people-exp {
+  font-size: 0.85rem;
+  color: var(--soft-blue);
+  line-height: 1.8;
+}
+
+.people .butterfly-link {
+  position: absolute;
+  top: 1.8rem;
+  right: 2.5rem;
+}
+
+/* -------------------- TIMELINE -------------------- */
+.timeline {
+  padding: 6.5rem 2rem 7rem;
+  background-color: var(--navy);
+  text-align: center;
+  border-top: 1px solid rgba(247, 214, 224, 0.15);
+}
+
+.timeline h2 {
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 3rem;
+}
+
+.timeline-list {
+  list-style: none;
+  max-width: 420px;
+  margin: 0 auto;
+  border-left: 2px solid rgba(244, 201, 93, 0.4);
+}
+
+.timeline-list li {
+  padding: 1.5rem 0 1.5rem 1.8rem;
+  text-align: left;
+  position: relative;
+}
+
+.timeline-list li::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 1.8rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--soft-pink);
+  box-shadow: 0 0 8px rgba(247, 214, 224, 0.8);
+}
+
+.tl-place {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  color: var(--off-white);
+}
+
+.tl-q {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--soft-pink);
+  letter-spacing: 3px;
+  margin: 0.2rem 0;
+}
+
+.tl-note {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.92rem;
+  color: rgba(253, 250, 247, 0.6);
+}
+
+/* -------------------- ATMOSPHERE (FIREFLIES & BUTTERFLIES) -------------------- */
+.atmosphere {
+  position: relative;
+  padding: 6.5rem 2rem;
+  background-color: var(--black);
+  overflow: hidden;
+  border-top: 1px solid rgba(247, 214, 224, 0.15);
+}
+
+.atmosphere-text {
+  max-width: 580px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.atmosphere h2 {
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 1.6rem;
+}
+
+.atmosphere p {
+  color: rgba(253, 250, 247, 0.85);
+  margin-bottom: 0.6rem;
+  font-size: 1.05rem;
+}
+
+.fireflies span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--gold);
+  box-shadow: 0 0 8px 3px rgba(244, 201, 93, 0.7);
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+.fireflies span:nth-child(1) { top: 20%; left: 10%; }
+.fireflies span:nth-child(2) { top: 60%; left: 20%; animation-delay: 0.7s; }
+.fireflies span:nth-child(3) { top: 35%; left: 80%; animation-delay: 1.4s; }
+.fireflies span:nth-child(4) { top: 75%; left: 88%; animation-delay: 2.1s; }
+
+.butterflies span {
+  position: absolute;
+  font-size: 1.4rem;
+  animation: flutter 3.5s ease-in-out infinite;
+}
+
+.butterflies span:nth-child(1) { top: 30%; left: 15%; }
+.butterflies span:nth-child(2) { top: 55%; left: 70%; animation-delay: 1s; }
+
+/* -------------------- FINALE -------------------- */
+.finale {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5.5rem 2rem;
+  background-color: var(--black);
+  border-top: 1px solid rgba(247, 214, 224, 0.15);
+}
+
+.finale-text {
+  max-width: 620px;
+}
+
+.finale-text p {
+  font-family: var(--serif);
+  color: rgba(253, 250, 247, 0.88);
+  margin-bottom: 1rem;
+}
+
+.f1 { font-size: 1.18rem; }
+.f2 { font-size: 1.28rem; }
+.f3 { font-size: 1.38rem; }
+.f4 { font-size: 1.28rem; color: var(--soft-blue); }
+.f5 { font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--gold); font-style: italic; margin: 1.8rem 0; }
+.f6 { font-size: 1.1rem; color: rgba(253, 250, 247, 0.65); }
+
+.f-end {
+  margin-top: 2.2rem;
+  letter-spacing: 2px;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: rgba(253, 250, 247, 0.5);
+}
+
+.infinity-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--soft-pink);
+  margin-top: 0.6rem;
+}
+
+.again {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.88rem;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--gold);
+  transition: color 0.3s ease;
+}
+
+.again:hover {
+  color: var(--soft-pink);
+  border-color: var(--soft-pink);
+}
+
+/* -------------------- FOOTER -------------------- */
+.site-footer {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  background-color: var(--black);
+  color: rgba(253, 250, 247, 0.45);
+  font-size: 0.82rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* -------------------- RESPONSIVE DESIGN -------------------- */
+@media (max-width: 600px) {
+  .site-nav {
+    padding: 1rem 1.2rem;
+  }
+  .site-nav nav a {
+    margin-left: 1rem;
+    font-size: 0.78rem;
+  }
+  .hero h1 {
+    letter-spacing: 2px;
+  }
+  .chapter {
+    padding: 4.5rem 1.2rem;
+  }
+  .people-card {
+    width: 100%;
+  }
+  .option-label {
+    padding: 0.85rem 1rem;
+  }
+  .option-title {
+    font-size: 0.9rem;
+  }
+}
